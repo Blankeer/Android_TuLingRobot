@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">小丸子图灵机器人</string>
+    <string name="msg_send">发送</string>
+    <string name="msg_hint">请在此处编辑消息</string>
+    <string name="error_info">人家来大姨妈了，不能陪你说话了。。</string>
+
+</resources>
