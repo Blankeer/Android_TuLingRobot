@@ -1,10 +1,8 @@
 package com.example.myrobots;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.example.myrobots.utils.JsonUitls;
@@ -14,15 +12,9 @@ import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-import com.lidroid.xutils.view.ViewInjectInfo;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
-
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,7 +38,7 @@ public class MainActivity extends Activity {
 		listViewInit();
 	}
 
-	// µã»÷·¢ËÍ°´Å¥µÄÊÂ¼ş£¬³¢ÊÔÓÃ¿ò¼Ü×¢½âµÄ·½Ê½Ğ´
+	// ç‚¹å‡»å‘é€æŒ‰é’®çš„äº‹ä»¶ï¼Œå°è¯•ç”¨æ¡†æ¶æ³¨è§£çš„æ–¹å¼å†™
 	@OnClick(R.id.main_button)
 	public void buttonSend(View v) {
 		String content = this.editText.getText().toString().trim();
@@ -56,11 +48,11 @@ public class MainActivity extends Activity {
 			this.list.add(msg);
 			long c = msg.getTime().getTime()
 					- list.get(list.size() == 1 ? 0 : list.size() - 2)
-							.getTime().getTime();// µÃµ½ÉÏÒ»¸öÏûÏ¢£¬»ñµÃÊ±¼ä²î
+							.getTime().getTime();// å¾—åˆ°ä¸Šä¸€ä¸ªæ¶ˆæ¯ï¼Œè·å¾—æ—¶é—´å·®
 			String t = "";
-			if (c > 1000 * 60) {// ·¢ËÍµÄÕâÌõÏûÏ¢ºÍÉÏÒ»ÌõÏà¸ô Õâ¸ö¼ä¸ô £¬ÏÔÊ¾·¢ËÍµÄÊ±¼ä ºÁÃë
+			if (c > 1000 * 60) {// å‘é€çš„è¿™æ¡æ¶ˆæ¯å’Œä¸Šä¸€æ¡ç›¸éš” è¿™ä¸ªé—´éš” ï¼Œæ˜¾ç¤ºå‘é€çš„æ—¶é—´ æ¯«ç§’
 				SimpleDateFormat sdf = new SimpleDateFormat(
-						"yyyyÄêMMÔÂddÈÕ hh:mm:ss");
+						"yyyyå¹´MMæœˆddæ—¥ hh:mm:ss");
 				t = sdf.format(msg.getTime());
 			}
 			msg.setTimeInfo(t);
@@ -89,7 +81,7 @@ public class MainActivity extends Activity {
 					public void onFailure(HttpException arg0, String arg1) {
 						msg = new Messagee(getResources().getString(
 								R.string.error_info)
-								+ "\nÏêÏ¸±¨´íÈçÏÂ:" + arg1, new Timestamp(System
+								+ "\nè¯¦ç»†æŠ¥é”™å¦‚ä¸‹:" + arg1, new Timestamp(System
 								.currentTimeMillis()));
 						list.add(msg);
 						adapter.notifyDataSetChanged();
@@ -103,13 +95,13 @@ public class MainActivity extends Activity {
 				});
 	}
 
-	private void dataInit() {// »¶Ó­Óï
+	private void dataInit() {// æ¬¢è¿è¯­
 		list = new ArrayList<Messagee>();
-		String welcome = "Ö÷ÈË£¬ÔÚ´Ë¹§ºò¶àÊ±ÁË¡£¡£¡£", t;
+		String welcome = "ä¸»äººï¼Œåœ¨æ­¤æ­å€™å¤šæ—¶äº†ã€‚ã€‚ã€‚", t;
 		Messagee msg = new Messagee(welcome, new Timestamp(
 				System.currentTimeMillis()), false);
 		this.list.add(msg);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ hh:mm:ss");
 		t = sdf.format(msg.getTime());
 		msg.setTimeInfo(t);
 	}

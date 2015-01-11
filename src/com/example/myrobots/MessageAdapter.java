@@ -1,6 +1,5 @@
 package com.example.myrobots;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -49,7 +48,7 @@ public class MessageAdapter extends BaseAdapter {
 					view = LayoutInflater.from(context).inflate(
 							R.layout.msg_item_robots, null);
 				}
-				vh = new ViewHolder();// ±ØĞë¼ÓÕâ¾ä£¬·ñÔò»á»ìÂÒ£¬ÎÒÒ²²»ÖªµÀÎªÉ¶
+				vh = new ViewHolder();// ä¸åŠ è¿™å¥ä¼šæ··ä¹±ï¼Œä¸çŸ¥é“ä¸ºå•¥
 				vh.textViewTime = (TextView) view.findViewById(R.id.msg_time);
 				vh.textViewContent = (TextView) view
 						.findViewById(R.id.msg_text);
